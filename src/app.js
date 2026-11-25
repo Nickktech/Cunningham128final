@@ -19,9 +19,10 @@ async function loadItems() {
   for (const item of items) {
     list.innerHTML += `
       <li>
-        <span>${item.title}</span>
-        <button onclick="editItem(${item.id})">Edit</button>
-        <button onclick="deleteItem(${item.id})">Delete</button>
+      <span class="boss-name">${item.title}</span>
+      <span class="boss-location">${item.location}</span>
+      <button onclick="editItem(${item.id})">Edit</button>
+      <button onclick="deleteItem(${item.id})">Delete</button>
       </li>
     `;
   }
@@ -32,35 +33,39 @@ async function loadItems() {
 async function addItem() {
   const input = document.getElementById("title-input");
   const title = input.value;
+  const locationInput = document.getElementById("location-input");
+  const location = locationInput.value;
 
-  if (title === "") {
-    alert("Please type something first!");
+  if (title === "" || location === "") {
+    alert("Please fill in all fields!");
     return;
   }
 
   await fetch("/api/add-item", {
     method: "POST",
-    body: JSON.stringify({ title: title }),
+    body: JSON.stringify({ title: title, location: location }),
   });
 
   input.value = "";
+  locationInput.value = ""; 
   loadItems();
 }
 
 
 // UPDATE: ask for a new title, then save it
 async function editItem(id) {
-  const newTitle = prompt("Enter the new title:");
+  const newTitle = prompt("Enter the new boss name:");
+  const newLocation = prompt("Enter the new boss location:");
 
-  if (newTitle === null || newTitle === "") {
+  if (newTitle === null || newTitle === "" ||
+      newLocation === null || newLocation === "") {
     return;
   }
 
   await fetch("/api/update-item", {
     method: "POST",
-    body: JSON.stringify({ id: id, title: newTitle }),
+    body: JSON.stringify({ id: id, title: newTitle, location: newLocation }),
   });
-
   loadItems();
 }
 

@@ -1,18 +1,52 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f5;
+  background-color: #18251e;
   max-width: 600px;
   margin: 40px auto;
   padding: 0 16px;
 }
+h1 {
+  text-align: center;
+  color:#e4c580;
+  font-size: 36px;
+}
+
+h2 {
+  text-align: center;
+  color:#e4c580;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+  color: #e4c580;
+  font-size: 16px;
+}
+
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
 
 .add-box {
   margin-bottom: 20px;
+  background-color: #28392e;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #e4c580;
 }
 
 input {
   padding: 8px;
   font-size: 16px;
+  background-color: #18251e;
+  color: white;
+  border: 1px solid #e4c580;
+  border-radius: 5px;
   width: 70%;
 }
 
@@ -20,6 +54,13 @@ button {
   padding: 8px 12px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.add-box button:hover {
+  background-color: #04f710;
 }
 
 ul {
@@ -28,12 +69,33 @@ ul {
 }
 
 li {
-  background-color: white;
+  background-color: #455d49;
   padding: 12px;
   margin-bottom: 8px;
   border-radius: 6px;
+  border: 1px solid #455d49;
 }
 
 li span {
   margin-right: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.boss-name {
+  font-weight: bold;
+  color: #e4c580;
+  font-size: 18px;
+}
+
+.boss-location {
+  font-style: italic;
+  color: lightgray;
+  font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: lightgray;
 }

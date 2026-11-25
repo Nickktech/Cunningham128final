@@ -3,5 +3,6 @@
 
 CREATE TABLE items (
   id    SERIAL PRIMARY KEY,
-  title TEXT NOT NULL
+  title TEXT NOT NULL,
+  location TEXT NOT NULL
 );
